@@ -1,5 +1,9 @@
 # MDS Core
 
+## RobertJN64 Changes:
+
+- Temporarily disable linter in CI/CD to test build
+
 ## Introduction
 
 The `mds-core` repo contains a deployable reference implementation for working with MDS data. It is a beta release meant for testing by cities and other entities to gather feedback and improve the product.
