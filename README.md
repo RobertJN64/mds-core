@@ -3,6 +3,54 @@
 ## RobertJN64 Changes:
 
 - Temporarily disable linter in CI/CD to test build
+- Setup Tests workflow to run automatically on push
+- Remove autoupdate workflow
+
+## RobertJN64 WSL Setup
+- Runs on Ubuntu 22.04.2 LTS
+```cmd
+sudo apt-get update
+sudo apt install postgresql
+sudo apt install net-tools
+sudo apt install jq
+sudo systemctl status postgresql
+
+sudo -u postgres -i
+createdb mdstest
+psql
+\password
+ - postgres
+exit
+exit
+
+sudo snap install redis
+sudo apt install redis-tools
+redis-cli ping
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+~REBOOT~
+
+nvm install 16.14.2
+
+mkdir MDS
+cd MDS
+git clone https://github.com/RobertJN64/mds-core
+cd mds-core
+
+npm install -g pnpm
+pnpm setup
+
+~REBOOT~
+
+cd MDS/mds-core
+pnpm install
+pnpm test
+pnpm -w install @types/geojson
+pnpm -w install @types/json2csv
+pnpm -w install @types/luxon
+pnpm build
+```
 
 ## Introduction
 
